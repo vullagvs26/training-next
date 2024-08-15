@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { UserController } from "../../../data/controllers/UserController";
+import { UserController} from "../../../data/controllers/UserController";
  
 export async function GET(req: NextRequest){
     try{
@@ -12,7 +12,7 @@ export async function GET(req: NextRequest){
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json()
-        return await UserController.addUser(body.email, body.name ?? 'no-name')
+        return await UserController.addUser(body.email, body.name ?? 'no-name', body.sectionId)
     } catch (error) {
         return new Error()
     }
