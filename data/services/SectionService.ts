@@ -11,4 +11,12 @@ export class SectionService {
     async getAllSection(): Promise<Section[]> {
         return await prisma.section.findMany()
     }
+
+    async addSection(
+        section_name: string,
+        section_code: string,
+
+    ): Promise<Section> {
+        return await sectionRepository.addSection({  section_name, section_code})
+    }
 }
